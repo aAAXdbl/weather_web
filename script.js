@@ -1,13 +1,15 @@
 
 const container = document.querySelector(".container");
 const search = document.querySelector(".search-box button");
+const searchInput = document.querySelector(".search-box input");
 const weatherBox = document.querySelector(".weather-box");
 const weatherDetails = document.querySelector(".weather-details");
 const error404 = document.querySelector(".not-found");
 const cityHide = document.querySelector(".city-hide");
 let lastClickTime = 0;
 
-search.addEventListener("click", () => {
+
+function searchWeather() {
   const apiKEY = "863def2fb0e26951383e06cce6199aa3";
   const city = document.querySelector(".search-box input").value;
 
@@ -86,7 +88,7 @@ search.addEventListener("click", () => {
         temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
         description.innerHTML = `${json.weather[0].description}`;
         humidity.innerHTML = `${json.main.humidity}<span>%</span>`;
-        wind.innerHTML = `${json.wind.speed}<span>Km/h</span>`;
+        wind.innerHTML = `${parseInt(json.wind.speed)}<span>Km/h</span>`;
 
         const infoWeather = document.querySelector(".weather-info");
         const infoHumidity = document.querySelector(".humidity-info");
@@ -144,4 +146,12 @@ search.addEventListener("click", () => {
     .catch((error) => {
       console.error("Hata Oluştu:", error); // Hata durumunu konsola yazdır
     });
+};
+search.addEventListener("click", searchWeather);
+
+searchInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    searchWeather();
+  }
 });
+
