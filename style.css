@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    text-shadow:2px 2px 2px #000;
+    
 }
 
 #clockdate {
@@ -18,8 +18,6 @@
 
 .clockdate-wrapper {
     background: transparent;  
-    /* background: -webkit-linear-gradient(to right, #fcff34, #143673);  
-    background: linear-gradient(to right, #fcff34, #143673); */
     padding:15px;
     max-width:100%;
     width:100%;
@@ -51,7 +49,9 @@ body {
     background-size: cover;
     background-position: center;
     overflow: hidden;
+    text-shadow:2px 2px 2px #000;
 }
+
 
 .container {
     position: relative;
@@ -303,4 +303,28 @@ body {
 .active-clone#clone-info-humidity span,
 .active-clone#clone-info-wind span {
     transform: translateY(0%);
+}
+
+.social-media {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.container2 ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.social-media i {
+    margin: 10px;
+    font-size: 50px;
+}
+
+/* Ziyaret edilmiş bağlantı rengini ayarlamak için */
+a:visited {
+    color: inherit; 
+    text-decoration: none;
 }
